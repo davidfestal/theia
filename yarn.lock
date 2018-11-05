@@ -243,6 +243,11 @@
     "@types/tough-cookie" "*"
     parse5 "^4.0.0"
 
+"@types/keytar@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/keytar/-/keytar-4.0.1.tgz#e2cf6405dc33861424e59b67516c66d2cf7bc21b"
+  integrity sha512-loKBID6UL4QjhD2scuvv6oAPlQ/WAY7aYTDyKlKo7fIgriLS8EZExqT567cHL5CY6si51MRoX1+r3mitD3eYrA==
+
 "@types/lodash.clonedeep@^4.5.3":
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/@types/lodash.clonedeep/-/lodash.clonedeep-4.5.4.tgz#2515c5f08bc95afebfb597711871b0497f5d7da7"
@@ -3318,9 +3323,10 @@ dtrace-provider@~0.8:
   dependencies:
     nan "^2.10.0"
 
-dugite-extra@0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/dugite-extra/-/dugite-extra-0.1.7.tgz#606081e8ad17fa9487fd50fd828fac05b1734788"
+dugite-extra@0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/dugite-extra/-/dugite-extra-0.1.9.tgz#31f73c683804e3c059a5dba512e5159de18975df"
+  integrity sha512-ft2ROrM0jKTT+aAM14DYf1OuFfuuxxAIzy7AuDSDwTKv1op4ReKDrM9iDLn97pS04rHpY6pGx2HCOTF8xKNO5w==
   dependencies:
     byline "^5.0.0"
     dugite "1.67.0"
@@ -5620,6 +5626,14 @@ jxLoader@*:
     promised-io "*"
     walker "1.x"
 
+keytar@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/keytar/-/keytar-4.3.0.tgz#4a3afd64fdeec300716ccf3985fdcf1cfd6e77e9"
+  integrity sha512-pd++/v+fS0LQKmzWlW6R1lziTXFqhfGeS6sYLfuTIqEy2pDzAbjutbSW8f9tnJdEEMn/9XhAQlT34VAtl9h4MQ==
+  dependencies:
+    nan "2.8.0"
+    prebuild-install "^5.0.0"
+
 keyv@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.0.0.tgz#44923ba39e68b12a7cec7df6c3268c031f2ef373"
@@ -6536,6 +6550,11 @@ nan@2.10.0, nan@^2.0.0, nan@^2.10.0, nan@^2.9.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
 
+nan@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
+  integrity sha1-7XFfP+neArV6XmJS2QqWZ14fCFo=
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -6551,6 +6570,11 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+napi-build-utils@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/napi-build-utils/-/napi-build-utils-1.0.1.tgz#1381a0f92c39d66bf19852e7873432fc2123e508"
+  integrity sha512-boQj1WFgQH3v4clhu3mTNfP+vOBxorDlE8EKiMjUlLG3C4qAESnn9AxIOkFgTR2c9LtzNjPrjS60cT27ZKBhaA==
 
 native-promise-only@^0.8.1:
   version "0.8.1"
@@ -7586,6 +7610,28 @@ prebuild-install@^4.0.0:
     os-homedir "^1.0.1"
     pump "^2.0.1"
     rc "^1.1.6"
+    simple-get "^2.7.0"
+    tar-fs "^1.13.0"
+    tunnel-agent "^0.6.0"
+    which-pm-runs "^1.0.0"
+
+prebuild-install@^5.0.0:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.2.1.tgz#87ba8cf17c65360a75eefeb3519e87973bf9791d"
+  integrity sha512-9DAccsInWHB48TBQi2eJkLPE049JuAI6FjIH0oIrij4bpDVEbX6JvlWRAcAAlUqBHhjgq0jNqA3m3bBXWm9v6w==
+  dependencies:
+    detect-libc "^1.0.3"
+    expand-template "^1.0.2"
+    github-from-package "0.0.0"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    napi-build-utils "^1.0.1"
+    node-abi "^2.2.0"
+    noop-logger "^0.1.1"
+    npmlog "^4.0.1"
+    os-homedir "^1.0.1"
+    pump "^2.0.1"
+    rc "^1.2.7"
     simple-get "^2.7.0"
     tar-fs "^1.13.0"
     tunnel-agent "^0.6.0"
