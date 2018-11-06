@@ -124,18 +124,15 @@ export class GitHistoryWidget extends GitNavigableListWidget<GitHistoryListNode>
     protected async addCommits(options?: Git.Options.Log): Promise<void> {
         let repository: Repository | undefined;
         repository = this.repositoryProvider.findRepositoryOrSelected(options);
-        let resolver: () => void;
+
         this.errorMessage = undefined;
         this.cancelIndicator.cancel();
         this.cancelIndicator = new CancellationTokenSource();
         const token = this.cancelIndicator.token;
+
         if (repository) {
-            const log = this.git.log(repository, options);
-            log.catch((reason: Error) => {
-                this.errorMessage = reason.message;
-                resolver();
-            });
-            log.then(async changes => {
+            try {
+                let changes = await this.git.log(repository, options);
                 if (token.isCancellationRequested || !this.hasMoreCommits) {
                     return;
                 }
@@ -172,16 +169,15 @@ export class GitHistoryWidget extends GitNavigableListWidget<GitHistoryListNode>
                         this.errorMessage = <React.Fragment>It is not under version control.</React.Fragment>;
                     }
                 }
-                resolver();
-            });
+
+            } catch (error) {
+                this.errorMessage = error.message;
+            }
+
         } else {
-            setTimeout(() => {
-                this.commits = [];
-                this.errorMessage = <React.Fragment>There is no repository selected in this workspace.</React.Fragment>;
-                resolver();
-            });
+            this.commits = [];
+            this.errorMessage = <React.Fragment>There is no repository selected in this workspace.</React.Fragment>;
         }
-        return new Promise<void>(resolve => resolver = resolve);
     }
 
     protected async addOrRemoveFileChangeNodes(commit: GitCommitNode) {
@@ -258,7 +254,7 @@ export class GitHistoryWidget extends GitNavigableListWidget<GitHistoryListNode>
             }
             content = <div className='message-container'>
                 <div className='no-history-message'>
-                    <div>There is no Git history available{path}.</div>
+                    <div>There is no git history available{path}.</div>
                     <div>{reason}</div>
                 </div>
             </div>;
