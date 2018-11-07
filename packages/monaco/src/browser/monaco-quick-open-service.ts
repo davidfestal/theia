@@ -57,7 +57,7 @@ export class MonacoQuickOpenService extends QuickOpenService {
 
     internalOpen(opts: MonacoQuickOpenControllerOpts): void {
         this.opts = opts;
-        this.previousActiveElement = window.document.activeElement || undefined;
+        this.previousActiveElement = window.document.activeElement || undefined;
         this.widget.show(this.opts.prefix || '');
         this.setPlaceHolder(opts.inputAriaLabel);
         this.setPassword(opts.password ? true : false);
@@ -154,6 +154,7 @@ export class MonacoQuickOpenService extends QuickOpenService {
 export class MonacoQuickOpenControllerOptsImpl implements MonacoQuickOpenControllerOpts {
 
     protected readonly options: QuickOpenOptions.Resolved;
+    readonly password?: boolean;
 
     constructor(
         protected readonly model: QuickOpenModel,
@@ -161,6 +162,7 @@ export class MonacoQuickOpenControllerOptsImpl implements MonacoQuickOpenControl
     ) {
         this.model = model;
         this.options = QuickOpenOptions.resolve(options);
+        this.password = this.options.password;
     }
 
     get prefix(): string {

@@ -36,6 +36,12 @@ export namespace QuickOpenOptions {
          */
         readonly showItemsWithoutHighlight: boolean;
 
+        /**
+         * `true` if the quick open widget provides a way for the user to securely enter a password.
+         * Otherwise, `false`.
+         */
+        readonly password: boolean;
+
         selectIndex(lookfor: string): number;
 
         onClose(canceled: boolean): void;
@@ -52,6 +58,7 @@ export namespace QuickOpenOptions {
         skipPrefix: 0,
 
         showItemsWithoutHighlight: false,
+        password: false,
 
         onClose: () => { /* no-op*/ },
 
